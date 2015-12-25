@@ -16,4 +16,5 @@
 </ol>
 
 <h1> To Review This project with link below:</h1>
-<h1> </h1>
+<h3> http://joslec9.github.io/frontend-nanodegree-feedreader-master.</h3>
+<h3> Also you can download and open the Index page in your browser.</h3>
