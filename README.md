@@ -15,5 +15,5 @@
 10. When complete - all of your tests should pass.
 
 # To Review This project open link below:
-### http://joslec9.github.io/frontend-nanodegree-feedreader-master.
-### To run this project, open the index.html file in a browser; this should run the specs, and all 7 specs should pass.
+#### http://joslec9.github.io/frontend-nanodegree-feedreader-master.
+#### To run this project, open the index.html file in a browser; this should run the specs, and all 7 specs should pass.
