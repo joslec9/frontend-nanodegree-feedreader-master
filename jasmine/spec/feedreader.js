@@ -27,8 +27,7 @@ $(function() {
 
 
         /* Test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
+         * in the allFeeds object and ensures it has non-empty URLs defined
          */
         it('has defined URLs', function() {
             allFeeds.forEach(function(feed) {
@@ -38,8 +37,7 @@ $(function() {
         });
 
 
-        /* This tests allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
+        /* This tests allFeeds object and ensures it has a non-empty names defined
          */
         it('has a Name that is not empty', function() {
 
@@ -81,18 +79,18 @@ $(function() {
              * Remember, loadFeed() is asynchronous so this test wil require
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
-
-            beforeEach(function(done) {
-                loadFeed(0, done);
+        beforeEach(function(done) {
+            loadFeed(0, (function() {
+                done();
             }));
+                });
+            
+    it('feed puts an entry in the feed container', function(done) {
+        var entries = $('.feed').find('.entry');
+        expect(entries.length >= 1).toBeGreaterThan(0);
+        done();
     });
-
-it('feed puts an entry in the feed container', function(done) {
-    var entries = $('.feed').find('.entry');
-    expect(entries.length >= 1).toBe(true);
-    done();
-});
-});
+    });
 
 /* A test suite named "New Feed Selection"*/
 describe('New Feed Selection', function() {
@@ -111,15 +109,14 @@ describe('New Feed Selection', function() {
             loadFeed(1, done);
         });
     });
-    /* Tests that when a new feed is loaded by the loadFeed function
-     * that the content actually changes.
+    /* Changes content when a new feed is loaded
      */
     it('change of content occurs when new content is loaded', function(done) {
         expect($('.feed').find('h2').text()).not.toBe(entryTexts);
         done();
     });
     // Initial feed restored post testing
-    afterEach(function(done) {
+    afterAll(function(done) {
         loadFeed(0, done);
     });
 
